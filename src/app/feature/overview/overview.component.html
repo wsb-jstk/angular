@@ -1,0 +1,24 @@
+<h1>Overview</h1>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projects" (click)="selectedProjectId.emit(project.id)" style="cursor:pointer;">
+          <td>#{{ project.id }}</td>
+          <td>{{ project.name }}</td>
+          <td>{{ project.description }}</td>
+          <td>{{ project.time }}</td>
+        </tr>
+        <tr *ngIf="!projects.length">
+          <td colspan="4">Empty or loading...</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
